@@ -1,4 +1,11 @@
+using Frigorifico.Context;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddDbContext<DbFrigorificoContext>(options =>
+options.UseSqlServer(builder.Configuration.GetConnectionString("Frigorifico")));
+
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
