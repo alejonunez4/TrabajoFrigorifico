@@ -13,10 +13,18 @@
     <a href="@Url.Action("Index", "Home")">Inicio</a>
 </p>
 
-@if (TempData["AlertaMensaje"] != null)
+@if (TempData["AlertaMensajeError"] != null)
 {
     <div class="alert alert-danger alert-dismissible fade show" role="alert">
-        <strong>ERROR</strong> @TempData["AlertaMensaje"]
+        <strong>ERROR </strong> @TempData["AlertaMensajeError"]
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+}
+
+@if (TempData["AlertaMensaje"] != null)
+{
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        <strong>EXITO </strong> @TempData["AlertaMensaje"]
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>
 }
@@ -58,5 +66,3 @@
         }
     </tbody>
 </table>
-
-<script src="~/js/Scripts/AlertaCustom.js"></script>

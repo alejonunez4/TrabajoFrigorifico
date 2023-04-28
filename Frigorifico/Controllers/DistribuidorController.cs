@@ -63,6 +63,7 @@ namespace Frigorifico.Controllers
             {
                 _context.Add(distribuidor);
                 await _context.SaveChangesAsync();
+                TempData["AlertaMensaje"] = "Se creo el distribuidor correctamente";
                 return RedirectToAction(nameof(Index));
             }
             ViewData["IdSucursal"] = new SelectList(_context.Sucursal, "IdSucursal", "IdSucursal", distribuidor.IdSucursal);
@@ -116,6 +117,7 @@ namespace Frigorifico.Controllers
                         throw;
                     }
                 }
+                TempData["AlertaMensaje"] = "Se edito el distribuidor correctamente.";
                 return RedirectToAction(nameof(Index));
             }
             ViewData["IdSucursal"] = new SelectList(_context.Sucursal, "IdSucursal", "IdSucursal", distribuidor.IdSucursal);
@@ -157,6 +159,7 @@ namespace Frigorifico.Controllers
             }
 
             await _context.SaveChangesAsync();
+            TempData["AlertaMensaje"] = "Se elimino el distribuidor correctamente";
             return RedirectToAction(nameof(Index));
         }
 

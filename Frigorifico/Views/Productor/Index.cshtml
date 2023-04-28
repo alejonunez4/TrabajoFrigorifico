@@ -12,6 +12,22 @@
 <p>
     <a href="@Url.Action("Index", "Home")">Inicio</a>
 </p>
+
+@if (TempData["AlertaMensajeError"] != null)
+{
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        <strong>ERROR </strong> @TempData["AlertaMensajeError"]
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+}
+
+@if (TempData["AlertaMensaje"] != null)
+{
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        <strong>EXITO </strong> @TempData["AlertaMensaje"]
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+}
 <table class="table">
     <thead>
         <tr>
@@ -28,23 +44,24 @@
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Nombre)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Direccion)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.IdSucursalNavigation.Nombre)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.IdProductor">Editar</a> |
-                <a asp-action="Details" asp-route-id="@item.IdProductor">Detalle</a> |
-                <a asp-action="Delete" asp-route-id="@item.IdProductor">Borrar</a>
-            </td>
-        </tr>
-}
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nombre)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Direccion)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IdSucursalNavigation.Nombre)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.IdProductor">Editar</a> |
+                    <a asp-action="Details" asp-route-id="@item.IdProductor">Detalle</a> |
+                    <a asp-action="Delete" asp-route-id="@item.IdProductor">Borrar</a>
+                </td>
+            </tr>
+        }
     </tbody>
 </table>

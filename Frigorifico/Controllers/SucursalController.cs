@@ -62,6 +62,7 @@ namespace Frigorifico.Controllers
             {
                 _context.Add(sucursal);
                 await _context.SaveChangesAsync();
+                TempData["AlertaMensaje"] = "Se creo la sucursal correctamente.";
                 return RedirectToAction(nameof(Index));
             }
             return View(sucursal);
@@ -113,6 +114,7 @@ namespace Frigorifico.Controllers
                         throw;
                     }
                 }
+                TempData["AlertaMensaje"] = "Se edito la sucursal correctamente.";
                 return RedirectToAction(nameof(Index));
             }
             return View(sucursal);
@@ -154,11 +156,12 @@ namespace Frigorifico.Controllers
             try
             {
                 await _context.SaveChangesAsync();
+                TempData["AlertaMensaje"] = "Se elimino la sucursal correctamente";
                 return RedirectToAction(nameof(Index));
             }
             catch (Exception)
             {
-                TempData["AlertaMensaje"] = "Primero debe eliminar a los distribuidores y productores que trabajan con la sucursal que desea eliminar";
+                TempData["AlertaMensajeError"] = "Primero debe eliminar a los distribuidores y productores que trabajan con la sucursal que desea eliminar";
                 return RedirectToAction(nameof(Index));
             }
         }
