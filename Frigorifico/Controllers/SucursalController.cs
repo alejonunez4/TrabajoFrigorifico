@@ -22,9 +22,9 @@ namespace Frigorifico.Controllers
         // GET: Sucursal
         public async Task<IActionResult> Index()
         {
-              return _context.Sucursal != null ? 
-                          View(await _context.Sucursal.ToListAsync()) :
-                          Problem("Entity set 'DbFrigorificoContext.Sucursal'  is null.");
+            return _context.Sucursal != null ?
+                        View(await _context.Sucursal.ToListAsync()) :
+                        Problem("Entity set 'DbFrigorificoContext.Sucursal'  is null.");
         }
 
         // GET: Sucursal/Details/5
@@ -150,14 +150,14 @@ namespace Frigorifico.Controllers
             {
                 _context.Sucursal.Remove(sucursal);
             }
-            
+
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool SucursalExists(int id)
         {
-          return (_context.Sucursal?.Any(e => e.IdSucursal == id)).GetValueOrDefault();
+            return (_context.Sucursal?.Any(e => e.IdSucursal == id)).GetValueOrDefault();
         }
     }
 }

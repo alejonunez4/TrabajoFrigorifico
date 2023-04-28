@@ -9,6 +9,9 @@
 <p>
     <a asp-action="Create">Crear nuevo productor</a>
 </p>
+<p>
+    <a href="@Url.Action("Index", "Home")">Inicio</a>
+</p>
 <table class="table">
     <thead>
         <tr>
@@ -19,7 +22,7 @@
                 @Html.DisplayNameFor(model => model.Direccion)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.IdSucursalNavigation)
+                @Html.DisplayNameFor(model => model.IdSucursalNavigation.Nombre)
             </th>
             <th></th>
         </tr>
@@ -34,7 +37,7 @@
                 @Html.DisplayFor(modelItem => item.Direccion)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.IdSucursalNavigation.IdSucursal)
+                @Html.DisplayFor(modelItem => item.IdSucursalNavigation.Nombre)
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.IdProductor">Editar</a> |

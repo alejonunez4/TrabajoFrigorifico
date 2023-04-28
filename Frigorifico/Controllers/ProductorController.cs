@@ -48,7 +48,7 @@ namespace Frigorifico.Controllers
         // GET: Productor/Create
         public IActionResult Create()
         {
-            ViewData["IdSucursal"] = new SelectList(_context.Sucursal, "IdSucursal", "IdSucursal");
+            ViewData["IdSucursal"] = new SelectList(_context.Sucursal, "IdSucursal", "Nombre");
             return View();
         }
 
@@ -155,14 +155,14 @@ namespace Frigorifico.Controllers
             {
                 _context.Productor.Remove(productor);
             }
-            
+
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool ProductorExists(int id)
         {
-          return (_context.Productor?.Any(e => e.IdProductor == id)).GetValueOrDefault();
+            return (_context.Productor?.Any(e => e.IdProductor == id)).GetValueOrDefault();
         }
     }
 }

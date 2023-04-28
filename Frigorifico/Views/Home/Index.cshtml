@@ -3,38 +3,25 @@
 }
 
 <div class="text-center">
-    <h1 class="display-4">Frigorifico ABM</h1>
+    <h1 class="display-4 mb-5">Frigorifico ABM</h1>
     <div class="container-fluid">
         <div class="d-flex justify-content-center">
             <div class="row">
                 <div class="col-md-12">
                     <ul class="list-group">
                         <li class="list-group mb-3">
-                            <button type="button" class="list-group-item list-group-item-action bg-primary text-dark" aria-current="true">
-                                Sucursales
-                            </button>
+                            <a href="@Url.Action("Index", "Sucursal")" class="list-group-item list-group-item-action bg-primary btn text-dark">Sucursales</a>
                         </li>
                         <li class="list-group mb-3">
-                            <button type="button" class="list-group-item list-group-item-action bg-success text-dark" aria-current="true">
-                                Distribuidores
-                            </button>
+
+                            <a href="@Url.Action("Index", "Distribuidor")" class="list-group-item list-group-item-action bg-success btn text-dark">Distribuidores</a>
                         </li>
                         <li class="list-group mb-3">
-                            <button type="button" class="list-group-item list-group-item-action bg-warning text-dark" aria-current="true">
-                                Productores
-                            </button>
+                            <a href="@Url.Action("Index", "Productor")"  class="list-group-item list-group-item-action bg-warning btn text-dark">Productores</a>
                         </li>
                     </ul>
                 </div>
             </div>
         </div>
-        @*<ul class="">
-                <li class="">
-                    <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Inicio</a>
-                </li>
-                <li class="">
-                    <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacidad</a>
-                </li>
-            </ul>*@
     </div>
 </div>
