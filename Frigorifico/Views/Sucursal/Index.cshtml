@@ -12,6 +12,15 @@
 <p>
     <a href="@Url.Action("Index", "Home")">Inicio</a>
 </p>
+
+@if (TempData["AlertaMensaje"] != null)
+{
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        <strong>ERROR</strong> @TempData["AlertaMensaje"]
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+}
+
 <table class="table">
     <thead>
         <tr>
@@ -28,23 +37,26 @@
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Nombre)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Ciudad)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Direccion)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.IdSucursal">Editar</a> |
-                <a asp-action="Details" asp-route-id="@item.IdSucursal">Detalle</a> |
-                <a asp-action="Delete" asp-route-id="@item.IdSucursal">Borrar</a>
-            </td>
-        </tr>
-}
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nombre)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Ciudad)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Direccion)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.IdSucursal">Editar</a> |
+                    <a asp-action="Details" asp-route-id="@item.IdSucursal">Detalle</a> |
+                    <a asp-action="Delete" asp-route-id="@item.IdSucursal">Borrar</a>
+                </td>
+            </tr>
+        }
     </tbody>
 </table>
+
+<script src="~/js/Scripts/AlertaCustom.js"></script>

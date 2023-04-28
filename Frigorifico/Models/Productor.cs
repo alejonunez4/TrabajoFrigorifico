@@ -4,7 +4,7 @@ using System.ComponentModel;
 
 namespace Frigorifico.Models;
 
-public partial class Productor
+public class Productor
 {
     public int IdProductor { get; set; }
 

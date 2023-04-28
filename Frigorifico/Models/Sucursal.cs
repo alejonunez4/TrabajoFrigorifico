@@ -4,7 +4,7 @@ using System.ComponentModel;
 
 namespace Frigorifico.Models;
 
-public partial class Sucursal
+public class Sucursal
 {
     public int IdSucursal { get; set; }
 

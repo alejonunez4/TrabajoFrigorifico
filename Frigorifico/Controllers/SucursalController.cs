@@ -151,8 +151,16 @@ namespace Frigorifico.Controllers
                 _context.Sucursal.Remove(sucursal);
             }
 
-            await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
+            try
+            {
+                await _context.SaveChangesAsync();
+                return RedirectToAction(nameof(Index));
+            }
+            catch (Exception)
+            {
+                TempData["AlertaMensaje"] = "Primero debe eliminar a los distribuidores y productores que trabajan con la sucursal que desea eliminar";
+                return RedirectToAction(nameof(Index));
+            }
         }
 
         private bool SucursalExists(int id)
